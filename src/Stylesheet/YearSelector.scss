@@ -1,0 +1,97 @@
+.YearSelector {
+  display: flex;
+  height: 4.8rem;
+  font-family: 'Oxanium';
+  margin-bottom: 2rem;
+
+  .year-counter {
+    position: relative;
+    display: flex;
+    align-content: flex-start;
+    width: 30rem;
+    height: 4.8rem;
+    overflow: hidden;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 2rem;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    &:before {
+      left: 0;
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 100%);
+    }
+
+    &:after {
+      right: 0;
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 100%);
+    }
+  }
+
+  .year-wrapper {
+    display: flex;
+    position: absolute;
+    transition: 200ms all ease;
+  }
+
+  .year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    padding: 0 1.5rem;
+    text-align: center;
+    font-size: 6rem;
+    font-weight: 300;
+    color: #999;
+  }
+
+  .arrow-button {
+    position: relative;
+    top: 0;
+    width: 4rem;
+    height: 4.8rem;
+    color: #666;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    transition: 50ms top ease-in, 150ms opacity ease-in;
+
+    svg {
+      font-size: 4rem;
+    }
+
+    &:active {
+      top: 0.1rem;
+    }
+  }
+
+  &:hover {
+    .arrow-button {
+      opacity: 1;
+      pointer-events: all;
+
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+    }
+  }
+}

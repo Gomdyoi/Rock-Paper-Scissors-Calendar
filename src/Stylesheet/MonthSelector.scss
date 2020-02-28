@@ -1,0 +1,94 @@
+.MonthSelector {
+  display: flex;
+  height: 10rem;
+  font-family: 'Oxanium';
+
+  .month-counter {
+    position: relative;
+    display: flex;
+    width: 50rem;
+    height: 10rem;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 2rem;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    &:before {
+      left: 0;
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 100%);
+    }
+
+    &:after {
+      right: 0;
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 100%);
+    }
+  }
+
+  .month-wrapper {
+    display: flex;
+    position: absolute;
+    transition: 200ms all ease;
+  }
+
+  .month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50rem;
+    height: 10rem;
+    padding: 0 1.5rem;
+    font-size: 8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .arrow-button {
+    position: relative;
+    top: 0;
+    width: 4rem;
+    height: 10rem;
+    color: #666;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    transition: 50ms top ease-in, 150ms opacity ease-in;
+
+    svg {
+      font-size: 4rem;
+    }
+
+    &:active {
+      top: 0.1rem;
+    }
+  }
+
+  &:hover {
+    .arrow-button {
+      opacity: 1;
+      pointer-events: all;
+
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+    }
+  }
+}
