@@ -10,7 +10,7 @@ const YearSelector = ({ getYear }: any) => {
   const yearList = (): number[] => {
     const years: number[] = []
 
-    for (let i = currendDate.year() - 100; i < currendDate.year(); i++) {
+    for (let i = currendDate.year() - 10; i < currendDate.year(); i++) {
       years.push(i + 1)
     }
 
